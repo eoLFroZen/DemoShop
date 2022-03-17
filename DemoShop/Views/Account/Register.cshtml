@@ -1,0 +1,38 @@
+﻿
+@{
+    List<Microsoft.AspNetCore.Identity.IdentityError> errors = (List<Microsoft.AspNetCore.Identity.IdentityError>)ViewData["errors"];
+}
+
+
+<form asp-action="Register">
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" placeholder="Enter first name" name="firstName">
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" placeholder="Enter last name" name="lastName">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password">
+    </div>
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+
+@if (errors != null &&  errors.Any())
+{
+    foreach (var err in errors)
+    {
+        <p class="text-danger">@err.Description</p>
+    }
+}
